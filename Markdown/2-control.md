@@ -69,7 +69,7 @@ else:
     - 모든 조건문이 거짓인 경우 else문의 실행문3이 실행된다.
 - elif 문을 쓸 때 if 문은 반드시 필요하지만, else 문은 생략될 수 있다.
 
-![alt text](resources/2-1.png)
+![alt text](../Resources/2-1.png)
 - 이미지 출처: https://wikidocs.net/20
 
 #### 실제 예시
