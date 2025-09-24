@@ -6,7 +6,9 @@
 ### if 문
 - "버스 막차 시간이 지나지 않았으면 버스를 타고, 막차 시간이 지났으면 택시를 탄다" 를 프로그래밍으로 표현할 수 있다.
 ```python
-# current_time, last_bus_arrival_time이라는 변수와 take_bus, take_taxi라는 함수가 정의되지 않았으므로 실행은 되지 않는다.
+current_time = 8
+last_bus_arrival_time = 23
+
 if current_time < last_bus_arrival_time:
     print('버스를 탔습니다')
 else:
