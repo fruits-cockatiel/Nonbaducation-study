@@ -437,7 +437,8 @@ print(dice)
 import random
 
 # 1. 3자리 숫자(서로 다른 숫자)를 생성하여 answer라는 변수에 대입
-answer = [random.randint(0, 9) for _ in range(3)] # _ 라는 변수명은 사용하지 않는다는 의미
+# answer = [random.randint(0, 9) for _ in range(3)] # _ 라는 변수명은 사용하지 않는다는 의미
+answer = random.sample(range(0, 10), 3) # 난이도 조절로 수정되었습니다
 
 # 2. while 문으로 사용자의 입력을 받을 수 있다. 무한루프를 돌면서 3 스트라이크일때만 while 문을 종료하게 만들 것이다.
 while True:
