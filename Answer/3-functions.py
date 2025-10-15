@@ -116,17 +116,11 @@ def household_book_manager():
         elif choice == '1':
             amount = int(input("수입 금액을 입력하세요: "))
             description = input("수입 내역을 입력하세요: ").strip()
-            if not description:
-                print("수입 내역을 입력해주세요.")
-                continue
             result = add_income(amount, description)
             print(result)
         elif choice == '2':
             amount = int(input("지출 금액을 입력하세요: "))
             description = input("지출 내역을 입력하세요: ").strip()
-            if not description:
-                print("지출 내역을 입력해주세요.")
-                continue
             result = add_expense(amount, description)
             print(result)
         elif choice == '3':
