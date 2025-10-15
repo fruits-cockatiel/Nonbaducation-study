@@ -21,7 +21,7 @@ def add_income(amount, description):
         "description": description
     }
     income_list.append(income_record)
-    return f"수입이 추가되었습니다: {description} (+{amount:,}원)"
+    return f"수입이 추가되었습니다: {description} (+{amount:,.0f}원)"
 
 def add_expense(amount, description):
     """
@@ -42,7 +42,7 @@ def add_expense(amount, description):
         "description": description
     }
     expense_list.append(expense_record)
-    return f"지출이 추가되었습니다: {description} (-{amount:,}원)"
+    return f"지출이 추가되었습니다: {description} (-{amount:,.0f}원)"
 
 def show_summary():
     """
@@ -114,27 +114,21 @@ def household_book_manager():
             print("가계부 프로그램을 종료합니다.")
             break
         elif choice == '1':
-            try:
-                amount = float(input("수입 금액을 입력하세요: "))
-                description = input("수입 내역을 입력하세요: ").strip()
-                if not description:
-                    print("수입 내역을 입력해주세요.")
-                    continue
-                result = add_income(amount, description)
-                print(result)
-            except ValueError:
-                print("올바른 금액을 입력해주세요.")
+            amount = int(input("수입 금액을 입력하세요: "))
+            description = input("수입 내역을 입력하세요: ").strip()
+            if not description:
+                print("수입 내역을 입력해주세요.")
+                continue
+            result = add_income(amount, description)
+            print(result)
         elif choice == '2':
-            try:
-                amount = float(input("지출 금액을 입력하세요: "))
-                description = input("지출 내역을 입력하세요: ").strip()
-                if not description:
-                    print("지출 내역을 입력해주세요.")
-                    continue
-                result = add_expense(amount, description)
-                print(result)
-            except ValueError:
-                print("올바른 금액을 입력해주세요.")
+            amount = int(input("지출 금액을 입력하세요: "))
+            description = input("지출 내역을 입력하세요: ").strip()
+            if not description:
+                print("지출 내역을 입력해주세요.")
+                continue
+            result = add_expense(amount, description)
+            print(result)
         elif choice == '3':
             result = show_summary()
             print(result)
