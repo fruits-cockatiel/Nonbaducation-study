@@ -662,3 +662,141 @@ print(isinstance(cat, Dog))     # False
     - 자식 클래스는 부모 클래스의 모든 기능을 사용할 수 있음
     - 자식 클래스에서 고유한 기능을 추가할 수 있음
     - 코드 중복을 줄이고 체계적인 프로그램 작성 가능
+
+
+## 과제
+
+### 나만의 단어장 만들기
+
+영어 공부할 때 사용할 수 있는 단어장 프로그램을 클래스로 만들어보세요!
+
+#### 📋 요구사항
+
+**기본 기능:**
+1. 영어 단어와 한글 뜻을 추가할 수 있어야 함
+2. 저장된 모든 단어를 볼 수 있어야 함  
+3. 특정 영어 단어를 검색할 수 있어야 함
+4. 파일에 저장되어 다음에 실행할 때도 단어들이 남아있어야 함
+
+**완성해야 할 클래스:**
+```python
+import os
+from google.colab import files
+
+class WordBook:
+    def __init__(self):
+        self.filename = "my_words.txt"
+        print("📚 단어장이 시작되었습니다!")
+    
+    def add_word(self, english, korean):
+        """영어 단어와 한글 뜻을 추가하는 기능"""
+        # TODO: 파일에 "영어단어:한글뜻" 형태로 저장하기
+        pass
+    
+    def show_all_words(self):
+        """저장된 모든 단어를 보여주는 기능"""
+        # TODO: 파일에서 모든 단어 읽어서 출력하기
+        pass
+    
+    def search_word(self, english):
+        """특정 영어 단어를 찾는 기능"""
+        # TODO: 파일에서 해당 영어 단어를 찾아서 뜻 출력
+        # 힌트: 파일을 한 줄씩 읽으면서 영어 단어 부분 비교
+        pass
+    
+    def download_wordbook(self):
+        """단어장 파일을 다운로드하는 기능"""
+        if os.path.exists(self.filename):
+            print("단어장을 다운로드합니다...")
+            files.download(self.filename)
+        else:
+            print("다운로드할 단어장이 없습니다.")
+
+# 실행 부분 (이 부분은 수정하지 마세요)
+def run_wordbook():
+    wordbook = WordBook()
+    
+    while True:
+        print("\n=== 나의 단어장 ===")
+        print("1. 단어 추가")
+        print("2. 모든 단어 보기")
+        print("3. 단어 검색")
+        print("4. 단어장 다운로드")
+        print("5. 종료")
+        
+        choice = input("선택하세요 (1-5): ")
+        
+        if choice == "1":
+            english = input("영어 단어: ")
+            korean = input("한글 뜻: ")
+            wordbook.add_word(english, korean)
+        elif choice == "2":
+            wordbook.show_all_words()
+        elif choice == "3":
+            english = input("찾을 영어 단어: ")
+            wordbook.search_word(english)
+        elif choice == "4":
+            wordbook.download_wordbook()
+            break
+        elif choice == "5":
+            print("단어장을 종료합니다. 열공하세요!")
+            break
+        else:
+            print("올바른 번호를 선택해주세요.")
+
+# 실행하기
+run_wordbook()
+```
+
+#### 🎯 실행 결과 예시
+
+```
+단어장이 시작되었습니다!
+
+=== 나의 단어장 ===
+1. 단어 추가
+2. 모든 단어 보기
+3. 단어 검색
+4. 단어장 다운로드
+5. 종료
+선택하세요 (1-5): 1
+
+영어 단어: apple
+한글 뜻: 사과
+'apple: 사과' 이 추가되었습니다!
+
+=== 나의 단어장 ===
+1. 단어 추가
+2. 모든 단어 보기
+3. 단어 검색
+4. 단어장 다운로드
+5. 종료
+선택하세요 (1-5): 2
+
+=== 저장된 단어들 ===
+apple → 사과
+book → 책
+computer → 컴퓨터
+```
+
+#### 💡 도전 과제 (선택사항)
+
+기본 기능을 모두 완성했다면 다음 기능들을 추가해보세요:
+
+1. **단어 개수 세기**
+   ```python
+   def count_words(self):
+       # 저장된 단어가 총 몇 개인지 출력
+   ```
+
+2. **단어 삭제하기**
+   ```python
+   def delete_word(self, english):
+       # 특정 단어를 삭제하는 기능
+   ```
+
+3. **랜덤 단어 퀴즈**
+   ```python
+   def random_quiz(self):
+       # 저장된 단어 중 하나를 랜덤으로 선택해서 퀴즈 내기
+   ```
